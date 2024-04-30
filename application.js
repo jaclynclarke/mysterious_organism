@@ -63,3 +63,20 @@ function pAequorFactory (specimenNum, dna) {
     }
   };
 }
+
+let collectionOfSpecimen = [];
+let specimenId = 1;
+
+const create30SurvivingSpecimen = () => {
+  while (collectionOfSpecimen.length < 30) {
+    let specimen = pAequorFactory(specimenId, mockUpStrand());
+    if (specimen.willLikelySurvive()) {
+      collectionOfSpecimen.push(specimen);
+    } 
+    specimenId++;
+  } 
+}
+
+create30SurvivingSpecimen();
+
+console.log(collectionOfSpecimen);
