@@ -38,24 +38,24 @@ function pAequorFactory (specimenNum, dna) {
       }
     },
     compareDNA (pAequor) {
-      let similarBases = 0;
+      let similar = 0;
       for (let i = 0; i < 15; i++) {
-        if (pAequor[i] === this.dna[i]) {
-          similarBases += 1;
+        if (this.dna[i] === pAequor.dna[i]) {
+          similar += 1;
         }
       }
-      let percentage = (similarBases / 15) * 100;
-      console.log('specimen #1 and specimen #2 have ' + percentage.toFixed(0) + '% DNA in common')
+      let percentageSimilar = (similar / 15) * 100;
+      console.log(this.specimenNum + ' and ' + pAequor.specimenNum + ' have ' + percentageSimilar.toFixed(2) + '% DNA in common')
     },
     willLikelySurvive () {
       let cOrG = 0;
-      for (let i = 0; i < 15; i++) {
-        if (this.dna === 'C' || this.dna === 'G') {
+      for (let j = 0; j < 15; j++) {
+        if (this.dna[j] === 'C' || this.dna[j] === 'G') {
           cOrG += 1;
         }
       }
-      let percentage = (cOrG / 15) * 100;
-      if (percentage.toFixed(0) >= 60) {
+      let percentageOfSurvival = (cOrG / 15) * 100;
+      if (percentageOfSurvival.toFixed(0) >= 60) {
         return true
       } else {
         return false
